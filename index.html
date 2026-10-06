@@ -1,0 +1,865 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mark Raven | Programmer Portfolio</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080b16;
+            color: white;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            width: 100%;
+            padding: 18px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(8, 11, 22, 0.95);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            border-bottom: 1px solid #20263a;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #00c8ff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: #ddd;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00c8ff;
+        }
+
+
+        /* =========================
+           HOME
+        ========================= */
+
+        #home {
+            min-height: 90vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 70px 8%;
+
+            background:
+                radial-gradient(
+                    circle at 80% 30%,
+                    #123c52 0,
+                    transparent 30%
+                ),
+                #080b16;
+        }
+
+        .home-container {
+            width: 1100px;
+            max-width: 100%;
+
+            display: flex;
+            align-items: center;
+
+            gap: 80px;
+        }
+
+
+        /* =========================
+           ANIME PROFILE
+        ========================= */
+
+        .profile {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .profile::before {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            border: 2px solid #00c8ff;
+
+            border-radius: 50%;
+
+            top: -10px;
+            left: -10px;
+
+            animation: rotate 8s linear infinite;
+        }
+
+        .profile img {
+            width: 280px;
+            height: 280px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 5px solid #00c8ff;
+
+            position: relative;
+            z-index: 2;
+
+            box-shadow:
+                0 0 25px rgba(0, 200, 255, 0.5);
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        /* =========================
+           HOME TEXT
+        ========================= */
+
+        .home-text small {
+            color: #00c8ff;
+            font-size: 16px;
+        }
+
+        .home-text h1 {
+            font-size: 55px;
+            line-height: 1.2;
+            margin: 10px 0;
+        }
+
+        .home-text h1 span {
+            color: #00c8ff;
+        }
+
+        .home-text h2 {
+            color: #b8c0d4;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .home-text p {
+            color: #aeb6c8;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+
+        /* BUTTON */
+
+        .btn {
+            display: inline-block;
+
+            padding: 12px 24px;
+
+            background: #00a8d6;
+
+            color: white;
+
+            border-radius: 6px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #00c8ff;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 5px 20px
+                rgba(0, 200, 255, 0.3);
+        }
+
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: #00c8ff;
+            font-size: 14px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        #education {
+            background: #0c1020;
+        }
+
+        .education-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .education-card {
+            background: #12182a;
+
+            padding: 30px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid #242c42;
+
+            border-radius: 10px;
+
+            position: relative;
+
+            transition: 0.3s;
+        }
+
+        .education-card:hover {
+            transform: translateX(8px);
+            border-color: #00c8ff;
+        }
+
+        .education-card::before {
+            content: "🎓";
+
+            position: absolute;
+
+            right: 25px;
+            top: 25px;
+
+            font-size: 30px;
+        }
+
+        .education-card h3 {
+            color: #00c8ff;
+            margin-bottom: 10px;
+            padding-right: 50px;
+        }
+
+        .education-card p {
+            color: #b9c0d0;
+            margin: 5px 0;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        #projects {
+            background: #080b16;
+        }
+
+        .projects-container {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        /* PROJECT CARD */
+
+        .project-card {
+            background: #12182a;
+
+            border: 1px solid #242c42;
+
+            border-radius: 12px;
+
+            padding: 28px;
+
+            transition: 0.3s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 100%;
+            height: 3px;
+
+            background: #00c8ff;
+
+            top: 0;
+            left: 0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+
+            border-color: #00c8ff;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 200, 255, 0.12);
+        }
+
+
+        /* PROJECT NUMBER */
+
+        .project-number {
+            color: #506078;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+
+        /* PROJECT NAME */
+
+        .project-card h3 {
+            color: white;
+
+            font-size: 23px;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* DESCRIPTION */
+
+        .project-card p {
+            color: #aeb6c8;
+
+            font-size: 14px;
+
+            margin-bottom: 22px;
+        }
+
+
+        /* TECH STACK */
+
+        .tech-title {
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+        .tech-stack {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+        }
+
+        .tech {
+            background: #18283b;
+
+            color: #00c8ff;
+
+            border: 1px solid #29465b;
+
+            padding: 5px 9px;
+
+            border-radius: 4px;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 25px;
+
+            background: #05070e;
+
+            color: #727b90;
+
+            border-top: 1px solid #20263a;
+        }
+
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .home-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 50px;
+            }
+
+            .home-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 18px;
+            }
+
+            .home-text h1 {
+                font-size: 38px;
+            }
+
+            .home-text h2 {
+                font-size: 18px;
+            }
+
+            .profile img {
+                width: 220px;
+                height: 220px;
+            }
+
+            .profile::before {
+                width: 240px;
+                height: 240px;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            Mark <span>Raven</span>
+        </div>
+
+        <ul>
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#education">Education</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HOME
+    ========================= -->
+
+    <section id="home">
+
+        <div class="home-container">
+
+
+            <!-- Anime Profile -->
+
+            <div class="profile">
+
+                <img
+                    src="profile.jpg"
+                    alt="Anime Profile"
+                >
+
+            </div>
+
+
+            <!-- Introduction -->
+
+            <div class="home-text">
+
+                <small>
+                    WELCOME TO MY PORTFOLIO
+                </small>
+
+                <h1>
+                    Hi, I'm
+                    <span>Mark Raven</span>
+                </h1>
+
+                <h2>
+                    BSIT Student • Programmer • Web Developer
+                </h2>
+
+                <p>
+                    I am an Information Technology student
+                    who enjoys learning programming and
+                    creating websites, mobile applications,
+                    and useful systems. This portfolio
+                    contains some of my school projects
+                    and work.
+                </p>
+
+                <a
+                    href="#projects"
+                    class="btn"
+                >
+                    View My Projects
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         EDUCATION
+    ========================= -->
+
+    <section id="education">
+
+        <div class="section-title">
+
+            <small>MY BACKGROUND</small>
+
+            <h2>Education</h2>
+
+        </div>
+
+
+        <div class="education-container">
+
+
+            <!-- College -->
+
+            <div class="education-card">
+
+                <h3>
+                    Bachelor of Science in Information Technology
+                </h3>
+
+                <p>
+                    <strong>
+                        Nueva Vizcaya State University
+                    </strong>
+                </p>
+
+                <p>
+                    Bayombong Campus
+                </p>
+
+                <p>
+                    Currently Studying
+                </p>
+
+            </div>
+
+
+            <!-- Senior High -->
+
+            <div class="education-card">
+
+                <h3>
+                    Senior High School
+                </h3>
+
+                <p>
+                    Information and Communication
+                    Technology (ICT)
+                </p>
+
+                <p>
+                    Completed
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects">
+
+        <div class="section-title">
+
+            <small>WHAT I'VE BUILT</small>
+
+            <h2>My Projects</h2>
+
+        </div>
+
+
+        <div class="projects-container">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 01
+                </div>
+
+                <h3>
+                    Cel-Kal-Culator
+                </h3>
+
+                <p>
+                    A simple mobile temperature converter.
+                    Users can enter a Celsius value and
+                    convert it into Fahrenheit or Kelvin.
+                    The application also keeps a history
+                    of previous conversions.
+                </p>
+
+                <div class="tech-title">
+                    Tech Stack
+                </div>
+
+                <div class="tech-stack">
+
+                    <span class="tech">
+                        MIT App Inventor
+                    </span>
+
+                    <span class="tech">
+                        Android
+                    </span>
+
+                    <span class="tech">
+                        Blocks
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 02
+                </div>
+
+                <h3>
+                    DSWD Aid Assistance System
+                </h3>
+
+                <p>
+                    A proposed system for managing aid
+                    assistance and appointment scheduling.
+                    It is designed to make the process of
+                    organizing beneficiaries and appointments
+                    easier.
+                </p>
+
+                <div class="tech-title">
+                    Tech Stack
+                </div>
+
+                <div class="tech-stack">
+
+                    <span class="tech">
+                        HTML
+                    </span>
+
+                    <span class="tech">
+                        CSS
+                    </span>
+
+                    <span class="tech">
+                        JavaScript
+                    </span>
+
+                    <span class="tech">
+                        MySQL
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 03
+                </div>
+
+                <h3>
+                    Student Portfolio
+                </h3>
+
+                <p>
+                    A personal website created to introduce
+                    myself and showcase my education,
+                    programming projects, and skills as
+                    an Information Technology student.
+                </p>
+
+                <div class="tech-title">
+                    Tech Stack
+                </div>
+
+                <div class="tech-stack">
+
+                    <span class="tech">
+                        HTML5
+                    </span>
+
+                    <span class="tech">
+                        CSS3
+                    </span>
+
+                    <span class="tech">
+                        JavaScript
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Mark Raven Viernes
+        </p>
+
+        <p>
+            Programmer Portfolio
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
+```
